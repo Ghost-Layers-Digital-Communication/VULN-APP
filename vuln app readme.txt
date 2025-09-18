@@ -5,21 +5,6 @@ Save as vuln_app.py and run in a virtualenv: python3 -m venv v && source v/bin/a
 
 It binds to 127.0.0.1:5000.
 
-Open http://127.0.0.1:5000/ and test normal login admin / s3cret.
+Open http://127.0.0.1:5000/ and test normal login admin / s3cret. alice / password123
 
-
-
-to fix the vulnerability 
-
-# SAFE: use parameterized queries to avoid SQL injection
-    cur = db.execute("SELECT id, username FROM users WHERE username = ? AND password = ?", (username, password))
-    row = cur.fetchone()
-
-
-# replace the vulnerable lines:
-# query = "SELECT id, username FROM users WHERE username = '%s' AND password = '%s'" % (username, password)
-# cur = db.execute(query)
-
-# with this:
-cur = db.execute("SELECT id, username FROM users WHERE username = ? AND password = ?", (username, password))
-row = cur.fetchone()
+admin'--      <<< tells it to ingore password
